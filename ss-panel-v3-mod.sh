@@ -4,11 +4,11 @@
 install_ss_panel_mod_v3(){
 	yum -y remove httpd
 	yum install -y unzip zip
-	wget -c https://raw.githubusercontent.com/mmmwhy/ss-panel-and-ss-py-mu/master/lnmp1.3.zip && unzip lnmp1.3.zip && cd lnmp1.3 && chmod +x install.sh && ./install.sh lnmp
+	wget -c https://raw.githubusercontent.com/changdaye/shadowsocks/master/lnmp1.3.zip && unzip lnmp1.3.zip && cd lnmp1.3 && chmod +x install.sh && ./install.sh lnmp
 	cd /home/wwwroot/default/
 	yum install git -y
 	rm -rf index.html
-	wget https://raw.githubusercontent.com/mmmwhy/ss-panel-and-ss-py-mu/master/ss.panel_mod.zip && unzip ss.panel_mod.zip
+	wget https://raw.githubusercontent.com/changdaye/shadowsocks/master/ss.panel_mod.zip && unzip ss.panel_mod.zip
 	chattr -i .user.ini
 	mv .user.ini public
 	chown -R root:root *
@@ -52,8 +52,7 @@ install_ss_panel_mod_v3(){
 	echo "#############################################################"
 	echo "# 安装成功，登录http://${IPAddress}看看吧~                  #"
 	echo "# Github: https://github.com/mmmwhy/ss-panel-and-ss-py-mu   #"
-	echo "# Author: 91vps.club                                        #"
-	echo "# Blog: https://91vps.club/2017/05/27/ss-panel-v3-mod/      #"
+	echo "# Author: mrchang                                        #"
 	echo "#############################################################"
 }
 install_centos_ssr(){
@@ -68,7 +67,7 @@ install_centos_ssr(){
 	chmod 0644 /var/swap
 	swapon /var/swap
 	echo '/var/swap   swap   swap   default 0 0' >> /etc/fstab
-	wget https://raw.githubusercontent.com/mmmwhy/ss-panel-and-ss-py-mu/master/libsodium-1.0.11.tar.gz
+	wget https://raw.githubusercontent.com/changdaye/shadowsocks/master/libsodium-1.0.11.tar.gz
 	tar xf libsodium-1.0.11.tar.gz && cd libsodium-1.0.11
 	./configure && make -j2 && make install
 	echo /usr/local/lib > /etc/ld.so.conf.d/usr_local_lib.conf
@@ -97,8 +96,8 @@ install_centos_ssr(){
 install_ubuntu_ssr(){
 	apt-get install build-essential wget -y
 	apt-get install iptables -y
-	wget https://github.com/jedisct1/libsodium/releases/download/1.0.10/libsodium-1.0.10.tar.gz
-	tar xf libsodium-1.0.10.tar.gz && cd libsodium-1.0.10
+	wget https://raw.githubusercontent.com/changdaye/shadowsocks/master/libsodium-1.0.11.tar.gz
+	tar xf libsodium-1.0.11.tar.gz && cd libsodium-1.0.11
 	./configure && make -j2 && make install
 	ldconfig
 	apt-get install python-pip git -y
@@ -123,8 +122,7 @@ install_node(){
 	echo "#############################################################"
 	echo "# One click Install Shadowsocks-Python-Manyuser             #"
 	echo "# Github: https://github.com/mmmwhy/ss-panel-and-ss-py-mu   #"
-	echo "# Author: 91VPS.CLUB                                        #"
-	echo "# https://91vps.club/2017/05/27/ss-panel-v3-mod/            #"
+	echo "# Author: mrchang                                       #"
 	echo "#############################################################"
 	echo
 	#Check Root
@@ -174,17 +172,13 @@ install_node(){
 	./logrun.sh
 	echo "#############################################################"
 	echo "# 安装完成，登录前端站点看看吧                                  #"
-	echo "# Github: https://github.com/mmmwhy/ss-panel-and-ss-py-mu   #"
-	echo "# Author: 91VPS.CLUB                                        #"
-	echo "# Blog: https://91vps.club/2017/05/27/ss-panel-v3-mod/      #"
+	echo "# Author: mrchang                                      #"
 	echo "#############################################################"
 }
 echo
 echo "#############################################################"
 echo "# One click Install SS-panel and Shadowsocks-Py-Mu          #"
 echo "# Github: https://github.com/mmmwhy/ss-panel-and-ss-py-mu   #"
-echo "# Author: 91VPS.club                                        #"
-echo "# Blog: https://91vps.club/2017/05/27/ss-panel-v3-mod/      #"
 echo "# Please choose the server you want                         #"
 echo "# 1  SS-V3_mod_panel One click Install                      #"
 echo "# 2  SS-node One click Install                              #"
